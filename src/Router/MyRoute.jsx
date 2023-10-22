@@ -3,6 +3,8 @@ import MainLayout from "../Layout/MainLayout";
 import Home from "../Pages/Home/Home";
 import MyCart from "../Pages/MyCart/MyCart";
 import AddProducts from "../Pages/AddProducts/AddProducts";
+import Login from "../Pages/Login/Login";
+import Register from "../Pages/Login/Register";
 
 const MyRoute = createBrowserRouter([
     {
@@ -16,7 +18,11 @@ const MyRoute = createBrowserRouter([
             },
             {
                 path: '/login',
-                element: <h1>Login</h1>
+                element: <Login></Login>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
             },
             {
                 path: '/mycart',

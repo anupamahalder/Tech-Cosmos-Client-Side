@@ -14,8 +14,8 @@ const Home = () => {
             <SimpleSlider></SimpleSlider>
             </div>
             {/* Brand showcasing section */}
-            <h1 style={{color: darkMode==="true" ? 'white': '#0c2461'}}  className="mb-10 text-3xl my-20 font-bold text-center mx-auto">Brand Collaboration</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto px-4 my-4 w-full">
+            <h1 style={{color: darkMode==="true" ? 'white': '#0c2461'}}  className="mb-10 text-3xl mt-24 font-bold text-center mx-auto">Brand Collaboration</h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto px-4 py-4 w-full">
                 {
                     brands.map(brand => <Brand key={brand._id} brand={brand}></Brand>)
                 }
