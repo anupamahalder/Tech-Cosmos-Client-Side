@@ -4,28 +4,41 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
     const {darkMode} = useContext(AuthContext);
+    const handleLogin = e =>{
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+    }
     return (
         <div>
-            <div style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A'}}  className="hero min-h-screen">
-            <div className="hero-content flex-col lg:flex-row-reverse">
+            <div style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A'}} className="hero min-h-[90vh]">
+            <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
                 <h1 style={{color: darkMode=="true"?"white":"#103798"}}
                  className="text-4xl font-bold">Please Login</h1>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl">
-                <form style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A'}}  className="card-body rounded-lg">
+                <form onSubmit={handleLogin} 
+                style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A'}}  
+                className="card-body rounded-lg">
                     <div className="form-control">
                     <label className="label">
                         <span style={{color: darkMode==="true" ? '#A3AAB7': '#1D232A'}}className="label-text">Email</span>
                     </label>
-                    <input type="email" style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A',border :darkMode==="true"?"1px solid white" :""}} placeholder="email" className="input input-bordered" required />
+                    {/* email input here  */}
+                    <input type="email" name="email"
+                    style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A',border :darkMode==="true"?"1px solid white" :""}} placeholder="email" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                     <label className="label">
                         <span style={{color: darkMode==="true" ? '#A3AAB7': '#1D232A'}}className="label-text">Password</span>
                     </label>
-                    <input style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A',border :darkMode==="true"?"1px solid white" :""}} 
-                     type="password" placeholder="password" className="input input-bordered" required />
+                    {/* password input here  */}
+                    <input type="password" name="password"
+                     style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A',border :darkMode==="true"?"1px solid white" :""}} 
+                     placeholder="password" className="input input-bordered" required />
                     <label className="label">
                         <Link href="/" 
                         style={{color: darkMode==="true" ? '#A3AAB7': '#1D232A'}}
@@ -34,6 +47,7 @@ const Login = () => {
                     </div>
                     <div className="form-control mt-6">
                     <button className="btn text-white bg-[#103798] hover:bg-[#2d42e6]">Login</button>
+                    <button className="btn mt-3 text-white bg-[#6e1b1b] hover:bg-[#a42f27]">Login with Google</button>
                     </div>
                 </form>
                 </div>
