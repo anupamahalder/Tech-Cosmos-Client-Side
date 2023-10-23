@@ -1,23 +1,72 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Login = () => {
-    const {darkMode} = useContext(AuthContext);
+    // destructure from context api 
+    const {darkMode, signInUser,
+        signInWithGoogle,
+        loading, user,setUser} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    // declare a state to store error while login 
+    const [error, setError] = useState('');
     const handleLogin = e =>{
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+        // handle password error 
+        if(password.length < 6){
+            setError("Password length should atleast 6 characters long!");
+            return;
+        }
+        // call signInUser with email and password
+        signInUser(email, password)
+        .then(res =>{
+            console.log(res.user);
+            Swal.fire(
+                'Good job!',
+                'You have successfully logged in!',
+                'success'
+            )
+            // naviagate user 
+            navigate(location?.state ? location.state : '/'); 
+        })
+        .catch(err =>{
+            setError(err.message);
+            console.log(err.message);
+        })
     }
-    return (
+    // handle google sign in 
+    const handleGoogleSignIn = ()=>{
+        signInWithGoogle()
+        .then(res=>{
+            console.log(res.user);
+            Swal.fire(
+                'Good job!',
+                'You clicked the button!',
+                'success'
+            )   
+            // naviagate user 
+            navigate(location?.state ? location.state : '/');           
+        })
+        .catch(err=>{
+            setError(err.message);
+        })
+    }
+     return (
         <div>
             <div style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A'}} className="hero min-h-[90vh]">
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
                 <h1 style={{color: darkMode=="true"?"white":"#103798"}}
-                 className="text-4xl font-bold">Please Login</h1>
+                 className="text-4xl font-bold text-center">Please Login</h1>
+                 {
+                    error ? <p className="text-center mt-2 text-red-500 font font-semibold">{error}</p>:""
+                 }
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl">
                 <form onSubmit={handleLogin} 
@@ -47,7 +96,8 @@ const Login = () => {
                     </div>
                     <div className="form-control mt-6">
                     <button className="btn text-white bg-[#103798] hover:bg-[#2d42e6]">Login</button>
-                    <button className="btn mt-3 text-white bg-[#6e1b1b] hover:bg-[#a42f27]">Login with Google</button>
+                    <button onClick={handleGoogleSignIn}
+                     className="btn mt-3 text-white bg-[#6e1b1b] hover:bg-[#a42f27]">Login with Google</button>
                     </div>
                 </form>
                 </div>
