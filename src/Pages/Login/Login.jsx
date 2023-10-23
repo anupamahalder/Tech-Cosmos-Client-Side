@@ -1,15 +1,17 @@
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { sendPasswordResetEmail } from "firebase/auth";
+import auth from "../../Firebase/firebase.config";
 
 const Login = () => {
     // destructure from context api 
     const {darkMode, signInUser,
-        signInWithGoogle,
-        loading, user,setUser} = useContext(AuthContext);
+        signInWithGoogle} = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
+    const emailRef = useRef(null);
     // declare a state to store error while login 
     const [error, setError] = useState('');
     const handleLogin = e =>{
@@ -32,11 +34,12 @@ const Login = () => {
                 'You have successfully logged in!',
                 'success'
             )
+            form.reset();
             // naviagate user 
             navigate(location?.state ? location.state : '/'); 
         })
         .catch(err =>{
-            setError(err.message);
+            setError("Please give correct email and password to login!");
             console.log(err.message);
         })
     }
@@ -54,6 +57,30 @@ const Login = () => {
             navigate(location?.state ? location.state : '/');           
         })
         .catch(err=>{
+            setError(err.message);
+        })
+    }
+    // handle forget/ reset password 
+    const handleForgetPassword = ()=>{
+        const email = emailRef.current.value;
+        if(!email){
+            setError("Please provide an email");
+            return;
+        }
+        else if(!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)){
+            setError("Please provide a valid email");
+            return;
+        }
+        // send verification email 
+        sendPasswordResetEmail(auth, email)
+        .then(()=>{
+            Swal.fire(
+                'Email has already Send!',
+                'Please verify the email',
+                'success'
+            )
+        })
+        .catch(err =>{
             setError(err.message);
         })
     }
@@ -77,7 +104,7 @@ const Login = () => {
                         <span style={{color: darkMode==="true" ? '#A3AAB7': '#1D232A'}}className="label-text">Email</span>
                     </label>
                     {/* email input here  */}
-                    <input type="email" name="email"
+                    <input type="email" name="email" ref={emailRef} 
                     style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A',border :darkMode==="true"?"1px solid white" :""}} placeholder="email" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
@@ -89,13 +116,13 @@ const Login = () => {
                      style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A',border :darkMode==="true"?"1px solid white" :""}} 
                      placeholder="password" className="input input-bordered" required />
                     <label className="label">
-                        <Link href="/" 
+                        <Link onClick={handleForgetPassword} 
                         style={{color: darkMode==="true" ? '#A3AAB7': '#1D232A'}}
                         className="label-text-alt link link-hover">Forgot password?</Link>
                     </label>
                     </div>
                     <div className="form-control mt-6">
-                    <button className="btn text-white bg-[#103798] hover:bg-[#2d42e6]">Login</button>
+                    <button type="submit" className="btn text-white bg-[#103798] hover:bg-[#2d42e6]">Login</button>
                     <button onClick={handleGoogleSignIn}
                      className="btn mt-3 text-white bg-[#6e1b1b] hover:bg-[#a42f27]">Login with Google</button>
                     </div>
