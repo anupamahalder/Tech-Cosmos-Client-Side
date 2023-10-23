@@ -5,13 +5,17 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import {AiOutlineAlignRight, AiOutlineDown} from 'react-icons/ai';
 const Navbar = () => {
     // destructure 
-    const {darkMode, setDarkMode} = useContext(AuthContext);
+    const {darkMode, setDarkMode, user,logOutUser } = useContext(AuthContext);
     // declare a state to hold value of mobile navbar 
     const [isOpen, setIsOpen] = useState(false);
     // console.log(darkMode);
+    // handle sign out 
+    const handleSignOut = () =>{
+        logOutUser();
+    }
     return (
         <div style={{backgroundColor: darkMode==="true" ? '#0c2461':'white', color: darkMode==="true" ? 'white': '#0c2461'}}  
-        className="flex justify-between px-10 md:px-4 lg:px-20 font-semibold text-xl py-6 shadow-lg">
+        className="flex justify-between px-10 md:px-4 lg:pl-20 lg:pr-16 font-semibold text-xl py-6 shadow-lg">
             <div>
                 {/* logo  */}
                 <h1 className='text-3xl font-bold'>Tech Cosmos</h1>
@@ -39,8 +43,15 @@ const Navbar = () => {
                     :<BsFillBrightnessHighFill onClick={()=>setDarkMode("false")}
                     className='cursor-pointer mt-1'></BsFillBrightnessHighFill>
                 }
-                <NavLink to='/login'className={({ isActive, isPending }) =>
+                {
+                    user ? <>
+                    <button className='text-left' onClick={handleSignOut}>Sign Out</button>
+                    <p style={{color: darkMode=="true" ? '#c7c7c7': '#4a4a4a'}}
+                     className='text-sm my-auto'>{user?.email}</p>
+                    </>:
+                    <NavLink to='/login'className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-red-500" : ""}>Login</NavLink>
+                }
             </div>
         </div>
     );

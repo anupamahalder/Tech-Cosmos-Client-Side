@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { Link } from 'react-router-dom';
 const Brand = ({brand}) => {
     // destructure 
-    const {brand_name, image_url, short_description} = brand;
+    const {brand_name, image_url, short_description, key_name} = brand;
     const {darkMode} = useContext(AuthContext);
 
     return (
@@ -14,7 +15,8 @@ const Brand = ({brand}) => {
                 <h2 className="card-title text-red-500  font-bold text-2xl pl-2">{brand_name}</h2>
                 <p className='pl-2 mt-2 h-[100px]'>{short_description}</p>
                 <div className='flex justify-center'>
-                <button className="btn mx-auto bg-[#123385] hover:bg-[#1f4bbb] text-white py-3 px-3 rounded-2xl my-5 font-bold">Visit Our Brand</button>
+                <Link to={`/brands/${key_name}`}>
+                <button className="btn mx-auto bg-[#123385] hover:bg-[#1f4bbb] text-white py-3 px-3 rounded-2xl my-5 font-bold">Visit Our Brand</button></Link>
                 </div>
             </div>
             </div>
