@@ -29,6 +29,9 @@ const ProductDetail = () => {
                 // console.log('item',checkItem);
                 setIspresent(true);
             }
+            else{
+                setIspresent(false);
+            }
         });
         if(isPresent){
             return;

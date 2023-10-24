@@ -28,7 +28,8 @@ const MyRoute = createBrowserRouter([
             },
             {
                 path: '/mycart',
-                element: <MyCart></MyCart>
+                element: <MyCart></MyCart>,
+                loader: ()=>fetch('http://localhost:5050/mycart')
             },
             {
                 path: '/brands/:id',
