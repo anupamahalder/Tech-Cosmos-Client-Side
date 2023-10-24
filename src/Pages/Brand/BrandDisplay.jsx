@@ -11,7 +11,7 @@ const BrandDisplay = ({brandInfo}) => {
     const {darkMode} = useContext(AuthContext);
 
     return (
-        <div style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A'}} 
+        <div style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#0C2461'}} 
         className='rounded-lg mb-10'>
             <div className="card card-compact shadow-xl pt-4 rounded-lg">
             <figure style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5'}}
