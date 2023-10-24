@@ -1,5 +1,5 @@
 import { Rating } from "@smastrom/react-rating";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
@@ -10,10 +10,29 @@ const ProductDetail = () => {
     // destructure 
     const {_id,brand,image,name,price,rating,type,category, description}=product;    
     const {darkMode} = useContext(AuthContext);
-    
     const navigate = useNavigate();
+    // declare a state to check data present in my cart or not 
+    const [isPresent, setIspresent] = useState(false);
+
     // handle add to cart 
     const handleAddToCart = () =>{
+        fetch('http://localhost:5050/mycart')
+        .then(res => res.json())
+        .then(data => {
+            const checkItem = data.find(item =>item._id === _id);
+            if(checkItem){
+                Swal.fire(
+                    'Product exists in My Cart',
+                    'This product has already been added to my cart',
+                    'info'
+                )
+                // console.log('item',checkItem);
+                setIspresent(true);
+            }
+        });
+        if(isPresent){
+            return;
+        }
         // send data to server  
         fetch('http://localhost:5050/mycart',{
             method: 'POST',
@@ -32,6 +51,14 @@ const ProductDetail = () => {
                     'success'
                 )
             }
+        })
+        .catch(err =>{
+            console.log(err.message);
+            Swal.fire(
+                'Sorry',
+                'Failed to added in my cart',
+                'error'
+            )
         })
     }
 
@@ -55,7 +82,8 @@ const ProductDetail = () => {
                     <h1 className='pl-2 py-2'><span className="font-bold">Description:</span> {description}</h1>
                     <div className='flex mx-auto px-20 gap-5'>
                     {/* Add to cart  */}
-                    <button onClick={handleAddToCart}
+                    <button 
+                    onClick={handleAddToCart}
                      className="btn bg-[#2a5ad3] hover:bg-[#1d387d] text-white py-3 px-4 rounded-lg my-5 font-bold">Add To Cart</button>
                     </div>
                 </div>
