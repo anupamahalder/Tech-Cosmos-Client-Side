@@ -14,35 +14,36 @@ const AddProducts = () => {
         const price = form.price.value;
         const ratings = form.ratings.value;
         const description = form.description.value;
-        console.log(name, brand, image, type, price, ratings, description);
+        const category = 'Technology and electronics';
+        const product = {name, brand, image, type, price, ratings, category, description};
 
         // send data to server  
-        // fetch('http://localhost:5033/mycart',{
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type':'application/json'
-        //     },
-        //     body: JSON.stringify(product)
-        // })
-        // .then(res=>res.json())
-        // .then(data =>{
-        //     console.log(data);
-        //     if(data.insertedId){
-        //         Swal.fire(
-        //             'Good Job',
-        //             'This product has been added to my cart',
-        //             'success'
-        //         )
-        //     }
-        // })
-        // .catch(err =>{
-        //     console.log(err.message);
-        //     Swal.fire(
-        //         'Sorry',
-        //         'Failed to added in my cart',
-        //         'error'
-        //     )
-        // })
+        fetch(`http://localhost:5033/brands/${brand}`,{
+            method: 'POST',
+            headers: {
+                'content-type':'application/json'
+            },
+            body: JSON.stringify(product)
+        })
+        .then(res=>res.json())
+        .then(data =>{
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire(
+                    'Good Job',
+                    'This product has been added',
+                    'success'
+                )
+            }
+        })
+        .catch(err =>{
+            console.log(err.message);
+            Swal.fire(
+                'Sorry',
+                'Failed to add product',
+                'error'
+            )
+        })
     }
     return (
         <div className="max-w-[1300px] min-h-screen pb-20" style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#0C2461'}} >
