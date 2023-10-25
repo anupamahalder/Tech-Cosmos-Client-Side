@@ -16,7 +16,7 @@ const ProductDetail = () => {
 
     // handle add to cart 
     const handleAddToCart = () =>{
-        fetch('http://localhost:5050/mycart')
+        fetch('http://localhost:5033/mycart')
         .then(res => res.json())
         .then(data => {
             const checkItem = data.find(item =>item._id === _id);
@@ -37,7 +37,7 @@ const ProductDetail = () => {
             return;
         }
         // send data to server  
-        fetch('http://localhost:5050/mycart',{
+        fetch('http://localhost:5033/mycart',{
             method: 'POST',
             headers: {
                 'content-type':'application/json'

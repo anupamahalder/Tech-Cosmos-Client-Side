@@ -16,7 +16,7 @@ const MyRoute = createBrowserRouter([
             {
                 path:'/',
                 element: <Home></Home>,
-                loader: ()=>fetch('http://localhost:5050/brands')
+                loader: ()=>fetch('http://localhost:5033/brands')
             },
             {
                 path: '/login',
@@ -29,20 +29,20 @@ const MyRoute = createBrowserRouter([
             {
                 path: '/mycart',
                 element: <MyCart></MyCart>,
-                loader: ()=>fetch('http://localhost:5050/mycart')
+                loader: ()=>fetch('http://localhost:5033/mycart')
             },
             {
                 path: '/brands/:id',
                 element: <BrandPage></BrandPage>,
-                loader: ({params})=>fetch(`http://localhost:5050/brands/${params.id}`)
+                loader: ({params})=>fetch(`http://localhost:5033/brands/${params.id}`)
             },
             {
                 path: '/products/:id1/:id2',
                 element: <ProductDetail></ProductDetail>,
-                loader: ({params})=>fetch(`http://localhost:5050/products/${params.id1}/${params.id2}`)
+                loader: ({params})=>fetch(`http://localhost:5033/products/${params.id1}/${params.id2}`)
             },
             {
-                path: '/addproduct',
+                path: '/addproducts',
                 element: <AddProducts></AddProducts>
             }
         ]
