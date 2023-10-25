@@ -16,7 +16,7 @@ const ProductDetail = () => {
 
     // handle add to cart 
     const handleAddToCart = () =>{
-        fetch('https://tech-cosmos-server-side-7zgruv72p-anupama-halders-projects.vercel.app/mycart')
+        fetch('https://tech-cosmos-server-side-hodcaknpn-anupama-halders-projects.vercel.app/mycart')
         .then(res => res.json())
         .then(data => {
             const checkItem = data.find(item =>item._id === _id);
@@ -37,7 +37,7 @@ const ProductDetail = () => {
             return;
         }
         // send data to server  
-        fetch('https://tech-cosmos-server-side-7zgruv72p-anupama-halders-projects.vercel.app/mycart',{
+        fetch('https://tech-cosmos-server-side-hodcaknpn-anupama-halders-projects.vercel.app/mycart',{
             method: 'POST',
             headers: {
                 'content-type':'application/json'

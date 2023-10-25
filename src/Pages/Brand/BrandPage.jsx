@@ -18,7 +18,7 @@ const BrandPage = () => {
     // load advertisement data 
     const [adsData, setAdsData] = useState([]);
     useEffect(()=>{
-        fetch(`https://tech-cosmos-server-side-7zgruv72p-anupama-halders-projects.vercel.app/brands/advertisement/${brandName}`)
+        fetch(`https://tech-cosmos-server-side-hodcaknpn-anupama-halders-projects.vercel.app/brands/advertisement/${brandName}`)
         .then(res=>res.json())
         .then(data=>{
             setAdsData(data);

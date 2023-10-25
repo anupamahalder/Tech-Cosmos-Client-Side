@@ -22,7 +22,7 @@ const CartProduct = ({cartInfo, setMyCart, myCart}) => {
           }).then((result) => {
             if (result.isConfirmed) {
                 console.log('Deleted id: ',id);
-                fetch(`https://tech-cosmos-server-side-7zgruv72p-anupama-halders-projects.vercel.app/mycart/${id}`,{
+                fetch(`https://tech-cosmos-server-side-hodcaknpn-anupama-halders-projects.vercel.app/mycart/${id}`,{
                     method: 'DELETE'
                 })
                 .then(res => res.json())

@@ -19,7 +19,7 @@ const AddProducts = () => {
         const product = {name, brand, image, type, price, rating, key_name, category, description};
 
         // send data to server  
-        fetch(`https://tech-cosmos-server-side-7zgruv72p-anupama-halders-projects.vercel.app/brands/${brand}`,{
+        fetch(`https://tech-cosmos-server-side-hodcaknpn-anupama-halders-projects.vercel.app/brands/${brand}`,{
             method: 'POST',
             headers: {
                 'content-type':'application/json'
