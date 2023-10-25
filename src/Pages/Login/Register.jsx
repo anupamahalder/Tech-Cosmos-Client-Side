@@ -27,7 +27,7 @@ const Register = () => {
             return;
         }
         else if(!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\]/.test(password)){
-            setError("Please give atleast one Uppercase letter!")
+            setError("Please give atleast one special character!")
             return;
         }
         // create user 

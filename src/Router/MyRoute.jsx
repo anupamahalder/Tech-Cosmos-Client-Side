@@ -18,7 +18,7 @@ const MyRoute = createBrowserRouter([
             {
                 path:'/',
                 element: <Home></Home>,
-                loader: ()=>fetch('http://localhost:5033/brands')
+                loader: ()=>fetch('https://tech-cosmos-server-side-7zgruv72p-anupama-halders-projects.vercel.app/brands')
             },
             {
                 path: '/login',
@@ -31,22 +31,22 @@ const MyRoute = createBrowserRouter([
             {
                 path: '/mycart',
                 element: <PrivateRoute><MyCart></MyCart></PrivateRoute>,
-                loader: ()=>fetch('http://localhost:5033/mycart')
+                loader: ()=>fetch('https://tech-cosmos-server-side-7zgruv72p-anupama-halders-projects.vercel.app/mycart')
             },
             {
                 path: '/brands/:id',
                 element: <BrandPage></BrandPage>,
-                loader: ({params})=>fetch(`http://localhost:5033/brands/${params.id}`)
+                loader: ({params})=>fetch(`https://tech-cosmos-server-side-7zgruv72p-anupama-halders-projects.vercel.app/brands/${params.id}`)
             },
             {
                 path: '/products/:id1/:id2',
                 element: <PrivateRoute><ProductDetail></ProductDetail></PrivateRoute>,
-                loader: ({params})=>fetch(`http://localhost:5033/products/${params.id1}/${params.id2}`)
+                loader: ({params})=>fetch(`https://tech-cosmos-server-side-7zgruv72p-anupama-halders-projects.vercel.app/products/${params.id1}/${params.id2}`)
             },
             {
                 path: '/update/:id1/:id2',
                 element: <PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
-                loader: ({params})=>fetch(`http://localhost:5033/products/${params.id1}/${params.id2}`)
+                loader: ({params})=>fetch(`https://tech-cosmos-server-side-7zgruv72p-anupama-halders-projects.vercel.app/products/${params.id1}/${params.id2}`)
             },
             {
                 path: '/addproducts',
