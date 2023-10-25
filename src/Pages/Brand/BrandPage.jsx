@@ -1,20 +1,40 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import BrandDisplay from "./BrandDisplay";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import {BiArrowBack} from 'react-icons/bi';
+import BrandSlider from "../../components/BrandSlick/BrandSlider";
 const BrandPage = () => {
     const brandData = useLoaderData();
+    console.log('brand data', brandData);
     const {darkMode} = useContext(AuthContext);
     const navigate = useNavigate();
-    if(typeof brandData !== 'object'){
-        return <h1 className="text-2xl py-40 font-semibold mx-auto text-center min-h-[80vh]">No data found!</h1>
-    }
+    // console.log('brand name',brandData[0]?.brand);
+    const brandName = brandData[0]?.key_name;
+    if(typeof brandData != 'object') return;
+
+    // load advertisement data 
+    const [adsData, setAdsData] = useState([]);
+    useEffect(()=>{
+        fetch(`http://localhost:5033/brands/advertisement/${brandName}`)
+        .then(res=>res.json())
+        .then(data=>{
+            setAdsData(data);
+            console.log('data set', data);
+        })
+        .catch(error =>{
+            console.log(error);
+        })
+    },[brandName]);
+
+
     // console.log(typeof brandData);
     return (
         <div className="max-w-[1300px] " style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#0C2461'}}>
+            {/* brand slider  */}
+            <BrandSlider adsData={adsData}></BrandSlider>
             {/* go back icon  */}
-            <BiArrowBack onClick={()=>navigate(-1)} className="text-gray-400 cursor-pointer font-bold absolute left-10 top-24 text-4xl"></BiArrowBack>
+            <BiArrowBack onClick={()=>navigate(-1)} className="text-gray-400 cursor-pointer font-bold absolute left-10 text-4xl mt-10"></BiArrowBack>
             {/* heading  */}
             <h1 className="text-center pt-10 text-3xl font-bold">All Products From {brandData[0].brand}</h1>
             <div 
