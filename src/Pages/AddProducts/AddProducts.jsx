@@ -1,42 +1,125 @@
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddProducts = () => {
     const {darkMode} = useContext(AuthContext);
+    const handleAddProduct = e =>{
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const brand = form.brand.value;
+        const image = form.image.value;
+        const type = form.type.value;
+        const price = form.price.value;
+        const ratings = form.ratings.value;
+        const description = form.description.value;
+        console.log(name, brand, image, type, price, ratings, description);
+
+        // send data to server  
+        // fetch('http://localhost:5033/mycart',{
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type':'application/json'
+        //     },
+        //     body: JSON.stringify(product)
+        // })
+        // .then(res=>res.json())
+        // .then(data =>{
+        //     console.log(data);
+        //     if(data.insertedId){
+        //         Swal.fire(
+        //             'Good Job',
+        //             'This product has been added to my cart',
+        //             'success'
+        //         )
+        //     }
+        // })
+        // .catch(err =>{
+        //     console.log(err.message);
+        //     Swal.fire(
+        //         'Sorry',
+        //         'Failed to added in my cart',
+        //         'error'
+        //     )
+        // })
+    }
     return (
-        <div className="max-w-[1300px] min-h-screen" style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#0C2461'}} >
+        <div className="max-w-[1300px] min-h-screen pb-20" style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#0C2461'}} >
             {/* form section  */}
             <div className="w-[500px] mx-auto">
-            <form  
+                <h1 className="text-center pt-6 text-3xl font-semibold">Add Products</h1>
+            <form  onSubmit={handleAddProduct}
                 style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A'}}  
                 className="card-body rounded-lg">
+                    {/* product name input here  */}
                     <div className="form-control">
                     <label className="label">
-                        <span style={{color: darkMode==="true" ? '#A3AAB7': '#1D232A'}}className="label-text">Full Name</span>
+                        <span style={{color: darkMode==="true" ? '#A3AAB7': '#0C2461'}}className="label-text font-semibold">PRODUCT NAME</span>
                     </label>
-                    {/* name input here  */}
                     <input type="text" name="name"
                     style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A',border :darkMode==="true"?"1px solid white" :""}} placeholder="name" className="input input-bordered" required />
                     </div>
+                    {/* option for brand name  */}
                     <div className="form-control">
                     <label className="label">
-                        <span style={{color: darkMode==="true" ? '#A3AAB7': '#1D232A'}}className="label-text">Email</span>
-                    </label>
-                    {/* email input here  */}
-                    <input type="email" name="email"
-                    style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A',border :darkMode==="true"?"1px solid white" :""}} placeholder="email" className="input input-bordered" required />
+                    <span style={{color: darkMode==="true" ? '#A3AAB7': '#0C2461'}}className="label-text font-semibold">SELECT BRAND NAME</span></label>
+                    <select id="" name="brand" style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A',border :darkMode==="true"?"1px solid white" :""}} className="input input-bordered" placeholder="select brand name" required>
+                        <option value="google">Google</option>
+                        <option value="canon">Canon</option>
+                        <option value="intel">Intel</option>
+                        <option value="samsung">Samsung</option>
+                        <option value="microsoft">Microsoft</option>
+                        <option value="dell">Dell</option>
+                        <option value="apple">Apple</option>
+                        <option value="sony">Sony</option>
+                        <option value="lgelectronics">LG Electronics</option>
+                    </select>
                     </div>
+                    {/* image url input here  */}
                     <div className="form-control">
                     <label className="label">
-                        <span style={{color: darkMode==="true" ? '#A3AAB7': '#1D232A'}}className="label-text">Password</span>
+                        <span style={{color: darkMode==="true" ? '#A3AAB7': '#0C2461'}}className="label-text font-semibold">IMAGE URL</span>
                     </label>
-                    {/* password input here  */}
-                    <input type="password" name="password"
-                     style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A',border :darkMode==="true"?"1px solid white" :""}} 
-                     placeholder="password" className="input input-bordered" required />
+                    <input type="text" name="image"
+                    style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A',border :darkMode==="true"?"1px solid white" :""}} placeholder="name" className="input input-bordered" required />
                     </div>
+                    {/* type of products input here  */}
+                    <div className="form-control">
+                    <label className="label">
+                        <span style={{color: darkMode==="true" ? '#A3AAB7': '#0C2461'}}className="label-text font-semibold">TYPE OF PRODUCTS</span>
+                    </label>
+                    <input type="text" name="type"
+                    style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A',border :darkMode==="true"?"1px solid white" :""}} placeholder="name" className="input input-bordered" required />
+                    </div>
+                    {/* price  */}
+                    <div className="form-control">
+                    <label className="label">
+                        <span style={{color: darkMode==="true" ? '#A3AAB7': '#0C2461'}}className="label-text font-semibold">PRICE</span>
+                    </label>
+                    <input type="number" name="price" min="0" step="any"
+                    style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A',border :darkMode==="true"?"1px solid white" :""}} placeholder="price" className="input input-bordered" required />
+                    </div>
+                    {/* short description input here  */}
+                    <div className="form-control">
+                    <label className="label">
+                        <span style={{color: darkMode==="true" ? '#A3AAB7': '#0C2461'}}className="label-text font-semibold">SHORT DESCRIPTION ABOUT PRODUCT</span>
+                    </label>
+                    <input type="text" name="description"
+                    style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A',border :darkMode==="true"?"1px solid white" :""}} placeholder="description" className="input input-bordered" required />
+                    </div>
+                    {/* Ratings  */}
+                    <div className="form-control">
+                    <label className="label">
+                        <span style={{color: darkMode==="true" ? '#A3AAB7': '#0C2461'}}className="label-text font-semibold">RATINGS</span>
+                    </label>
+                    <input type="number" name="ratings" min="0" step="any"
+                    style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A',border :darkMode==="true"?"1px solid white" :""}} placeholder="ratings" className="input input-bordered" required />
+                    </div>
+
                     <div className="form-control mt-6">
-                    <button type="submit" className="btn text-white bg-[#103798] hover:bg-[#2d42e6]">Register</button>
+                    <button 
+                    type="submit" className="btn text-white bg-[#103798] hover:bg-[#2d42e6]">Add Product</button>
                     </div>
                 </form>
             </div>
