@@ -11,7 +11,9 @@ const BrandPage = () => {
     const navigate = useNavigate();
     // console.log('brand name',brandData[0]?.brand);
     const brandName = brandData[0]?.key_name;
-    if(typeof brandData != 'object') return;
+    if(typeof brandData != 'object'){
+        return <h1 className="text-center text-3xl font-semibold my-40 min-h-[90vh]">No Products Found!</h1>
+    }
 
     // load advertisement data 
     const [adsData, setAdsData] = useState([]);
@@ -30,7 +32,7 @@ const BrandPage = () => {
 
     // console.log(typeof brandData);
     return (
-        <div className="max-w-[1300px] " style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#0C2461'}}>
+        <div className="max-w-[1300px] min-h-screen" style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#0C2461'}}>
             {/* brand slider  */}
             <BrandSlider adsData={adsData}></BrandSlider>
             {/* go back icon  */}
