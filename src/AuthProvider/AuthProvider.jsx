@@ -28,6 +28,7 @@ const AuthProvider = ({children}) => {
     }
     // login with email and password 
     const signInUser = (email, password) =>{
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
     // sign in/ login with google provider

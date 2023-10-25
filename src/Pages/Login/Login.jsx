@@ -50,7 +50,7 @@ const Login = () => {
             console.log(res.user);
             Swal.fire(
                 'Good job!',
-                'You clicked the button!',
+                'You have successfully logged in',
                 'success'
             )   
             // naviagate user 

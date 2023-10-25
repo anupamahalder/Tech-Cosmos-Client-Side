@@ -20,6 +20,36 @@ const Home = () => {
                     brands.map(brand => <Brand key={brand._id} brand={brand}></Brand>)
                 }
             </div>
+            <div style={{backgroundColor: darkMode==="true" ? '#F0EFF5':'white', color: darkMode==="true" ? 'white': '#0C2461'}} className="py-10 px-10">
+                <h1 className="text-center text-3xl my-10 font-bold">Frequently Asked Question</h1>
+                <div className="collapse collapse-plus my-2" style={{backgroundColor: darkMode==="true" ? '#F2F2F2':'#F0EFF5'}}>
+                <input type="radio" name="my-accordion-3" checked="checked"  /> 
+                <div className="collapse-title text-xl font-medium">
+                    How many brands do we have?
+                </div>
+                <div className="collapse-content"> 
+                    <p>Total 9 brands</p>
+                </div>
+                </div>
+                <div className="collapse collapse-plus my-2" style={{backgroundColor: darkMode==="true" ? '#F2F2F2':'#F0EFF5'}}>
+                <input type="radio" name="my-accordion-3" /> 
+                <div className="collapse-title text-xl font-medium">
+                    Can we get support if there is problem in login?
+                </div>
+                <div className="collapse-content"> 
+                    <p>Yes sure</p>
+                </div>
+                </div>
+                <div className="collapse collapse-plus my-2" style={{backgroundColor: darkMode==="true" ? '#F2F2F2':'#F0EFF5'}}>
+                <input type="radio" name="my-accordion-3" /> 
+                <div className="collapse-title text-xl font-medium">
+                    Can I add products to my cart?
+                </div>
+                <div className="collapse-content"> 
+                    <p>Yes before that you have to be logged in user.</p>
+                </div>
+                </div>
+            </div>
         </div>
     );
 };
