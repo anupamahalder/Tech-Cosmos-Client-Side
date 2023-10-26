@@ -4,8 +4,8 @@ import SimpleSlider from "../../components/BannerSlick/Slick";
 import { useLoaderData } from "react-router-dom";
 import Brand from "./Brand";
 import AboutUs from "../../components/AboutUs/AboutUs";
-import FAQ from "../../components/FAQ/FAQ";
 import Contact from "../../components/Contact/Contact";
+import Faq from "../../components/FAQ/Faq";
 
 const Home = () => {
     const {darkMode} = useContext(AuthContext);
@@ -28,7 +28,7 @@ const Home = () => {
             {/* About us section  */}
             <AboutUs></AboutUs>
             {/* faq section  */}
-            <FAQ></FAQ>
+            <Faq></Faq>
             {/* contact us section  */}
             <Contact></Contact>
         </div>
