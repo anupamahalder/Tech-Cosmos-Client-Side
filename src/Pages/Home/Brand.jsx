@@ -2,13 +2,18 @@ import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 const Brand = ({brand}) => {
     // destructure 
     const {brand_name, image_url, short_description, key_name} = brand;
     const {darkMode} = useContext(AuthContext);
 
     return (
-        <div style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A'}} className='rounded-lg mb-10'>
+        <div data-aos="flip-up" 
+        style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A'}} className='rounded-lg mb-10'>
             <div className="card card-compact shadow-xl pt-4 rounded-lg">
             <figure className='w-[350px] h-[250px] rounded-xl bg-white mx-auto my-auto object-cover object-center p-4'><img src={image_url} alt={brand_name} /></figure>
             <div className=" p-4 h-[200px]">

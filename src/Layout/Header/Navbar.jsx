@@ -27,7 +27,7 @@ const Navbar = () => {
                     <AiOutlineAlignRight></AiOutlineAlignRight>
                 }
             </div>
-            <div className={`md:flex md:gap-10 absolute md:static ${isOpen ? "rounded-xl mt-16 p-4 z-10 flex flex-col right-6":"-top-80 block"} }`} style={{backgroundColor: darkMode==="true" ? '#0c2461':'white', color: darkMode==="true" ? 'white': '#0c2461'}}>
+            <div className={`md:flex md:gap-4 lg:gap-10 absolute md:static ${isOpen ? "rounded-xl mt-16 p-4 z-10 flex flex-col right-6":"-top-80 block"} }`} style={{backgroundColor: darkMode==="true" ? '#0c2461':'white', color: darkMode==="true" ? 'white': '#0c2461'}}>
                 {/*------------ Navlink------------  */}
                 <NavLink to='/'className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-red-500" : ""}>Home</NavLink>
@@ -36,6 +36,8 @@ const Navbar = () => {
                 isPending ? "pending" : isActive ? "text-red-500" : ""}>Add Product</NavLink>
                 <NavLink to='/mycart'className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-red-500" : ""}>My Cart</NavLink>
+                <NavLink to='/contact'className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-red-500" : ""}>Contact</NavLink>
                 {
                     darkMode==="false" ?
                     <BsFillMoonFill onClick={()=>setDarkMode("true")} 

@@ -26,7 +26,7 @@ const Contact = () => {
     
     return (
         <div style={{backgroundColor: darkMode==="true" ? '#1D232A':'white', color: darkMode==="true" ? 'white': '#0C2461'}} className="max-w-[1300px] pb-20">
-            <h1 className="text-center text-3xl my-10 font-bold">Contact US</h1>
+            <h1 className="text-center text-3xl py-10 font-bold">Contact US</h1>
             <div className="md:flex md:gap-10 px-2 md:px-10 mx-auto md:justify-center md:items-center">
                 <div className="mx-auto mb-10 md:m-0 md:flex-1 flex justify-center shadow-2xl rounded-lg h-[250px] md:h-[420px]">
                     {/* map  */}

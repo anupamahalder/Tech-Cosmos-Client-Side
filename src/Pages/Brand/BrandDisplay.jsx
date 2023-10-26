@@ -4,6 +4,10 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { Link } from 'react-router-dom';
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 const BrandDisplay = ({brandInfo}) => {
     // destructure 
@@ -11,7 +15,8 @@ const BrandDisplay = ({brandInfo}) => {
     const {darkMode} = useContext(AuthContext);
 
     return (
-        <div style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#0C2461'}} 
+        <div data-aos="zoom-in"
+         style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#0C2461'}} 
         className='rounded-lg mb-10'>
             <div className="card card-compact shadow-xl pt-4 rounded-lg">
             <figure style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5'}}
