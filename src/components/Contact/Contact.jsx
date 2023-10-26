@@ -1,8 +1,29 @@
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import emailjs from '@emailjs/browser';
+import Swal from "sweetalert2";
+
 
 const Contact = () => {
     const {darkMode} = useContext(AuthContext);
+    const form = useRef();
+    const sendEmail = (e) => {
+        e.preventDefault();
+    
+        emailjs.sendForm('service_nd8x9bd', 'template_55gqpur', form.current, '9MT5PWD0Vk57sX2mm')
+          .then((result) => {
+            Swal.fire(
+                'Thank You!',
+                'Messaged send successfully!',
+                'success'
+            )
+              console.log(result.text);
+              e.target.reset();
+          }, (error) => {
+              console.log(error.text);
+          });
+      };
+    
     return (
         <div style={{backgroundColor: darkMode==="true" ? '#1D232A':'white', color: darkMode==="true" ? 'white': '#0C2461'}} className="max-w-[1300px] pb-20">
             <h1 className="text-center text-3xl my-10 font-bold">Contact US</h1>
@@ -13,7 +34,8 @@ const Contact = () => {
                 </div>
                 {/* form section  */}
                 <div className="card w-full md:flex-1 mx-auto shadow-2xl">
-                <form  
+                <form  onSubmit={sendEmail}
+                ref={form}
                 style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A'}}  
                 className="card-body rounded-lg">
                     <h1 style={{color: darkMode==="true" ? 'white': '#0C2461'}}

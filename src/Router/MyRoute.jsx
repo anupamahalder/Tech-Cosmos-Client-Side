@@ -10,16 +10,18 @@ import ProductDetail from "../Pages/Brand/ProductDetail";
 import UpdateProduct from "../components/UpdateProduct/UpdateProduct";
 import PrivateRoute from "./PrivateRoute";
 import Contact from "../components/Contact/Contact";
+import Error from "../components/Error/Error";
 
 const MyRoute = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout></MainLayout>,
+        errorElement: <Error></Error>,
         children:[
             {
                 path:'/',
                 element: <Home></Home>,
-                loader: ()=>fetch('https://tech-cosmos-server-side-hodcaknpn-anupama-halders-projects.vercel.app/brands')
+                loader: ()=>fetch('https://tech-cosmos-server-side.vercel.app/brands')
             },
             {
                 path: '/login',
@@ -32,22 +34,22 @@ const MyRoute = createBrowserRouter([
             {
                 path: '/mycart',
                 element: <PrivateRoute><MyCart></MyCart></PrivateRoute>,
-                loader: ()=>fetch('https://tech-cosmos-server-side-hodcaknpn-anupama-halders-projects.vercel.app/mycart')
+                loader: ()=>fetch('https://tech-cosmos-server-side.vercel.app/mycart')
             },
             {
                 path: '/brands/:id',
                 element: <BrandPage></BrandPage>,
-                loader: ({params})=>fetch(`https://tech-cosmos-server-side-hodcaknpn-anupama-halders-projects.vercel.app/brands/${params.id}`)
+                loader: ({params})=>fetch(`https://tech-cosmos-server-side.vercel.app/brands/${params.id}`)
             },
             {
                 path: '/products/:id1/:id2',
                 element: <PrivateRoute><ProductDetail></ProductDetail></PrivateRoute>,
-                loader: ({params})=>fetch(`https://tech-cosmos-server-side-hodcaknpn-anupama-halders-projects.vercel.app/products/${params.id1}/${params.id2}`)
+                loader: ({params})=>fetch(`https://tech-cosmos-server-side.vercel.app/products/${params.id1}/${params.id2}`)
             },
             {
                 path: '/update/:id1/:id2',
                 element: <PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
-                loader: ({params})=>fetch(`https://tech-cosmos-server-side-hodcaknpn-anupama-halders-projects.vercel.app/products/${params.id1}/${params.id2}`)
+                loader: ({params})=>fetch(`https://tech-cosmos-server-side.vercel.app/products/${params.id1}/${params.id2}`)
             },
             {
                 path: '/addproducts',
