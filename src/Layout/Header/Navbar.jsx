@@ -15,7 +15,7 @@ const Navbar = () => {
     }
     return (
         <div style={{backgroundColor: darkMode==="true" ? '#0c2461':'white', color: darkMode==="true" ? 'white': '#0c2461'}}  
-        className="flex justify-between px-10 md:px-4 lg:pl-20 lg:pr-16 font-semibold text-xl py-6 shadow-lg">
+        className="flex justify-between px-10 md:px-4 lg:pl-12 lg:pr-4 font-semibold text-xl py-6 shadow-lg">
             <div>
                 {/* logo  */}
                 <h1 className='text-3xl font-bold'>Tech Cosmos</h1>
@@ -44,11 +44,12 @@ const Navbar = () => {
                     className='cursor-pointer mt-1'></BsFillBrightnessHighFill>
                 }
                 {
-                    user ? <>
+                    user ? <div className='flex justify-center items-center gap-3 -mt-2'>
                     <button className='text-left' onClick={handleSignOut}>Sign Out</button>
                     <p style={{color: darkMode=="true" ? '#c7c7c7': '#4a4a4a'}}
-                     className='text-sm my-auto'>{user?.email}</p>
-                    </>:
+                     className='text-sm my-auto'>{user.displayName || user?.email}</p>
+                     <img className='w-10 rounded-full' src={user?.photoURL} alt="" />
+                    </div>:
                     <NavLink to='/login'className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-red-500" : ""}>Login</NavLink>
                 }
