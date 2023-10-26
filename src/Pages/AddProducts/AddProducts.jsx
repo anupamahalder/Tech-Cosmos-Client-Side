@@ -12,7 +12,7 @@ const AddProducts = () => {
         const image = form.image.value;
         const type = form.type.value;
         const price = form.price.value;
-        const rating = form.ratings.value;
+        const rating = form.rating.value;
         const description = form.description.value;
         const key_name = brand;
         const category = 'Technology and electronics';
