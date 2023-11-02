@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { sendPasswordResetEmail } from "firebase/auth";
 import auth from "../../Firebase/firebase.config";
+import axios from "axios";
 
 const Login = () => {
     // destructure from context api 
@@ -28,15 +29,21 @@ const Login = () => {
         // call signInUser with email and password
         signInUser(email, password)
         .then(res =>{
-            console.log(res.user);
             Swal.fire(
                 'Good job!',
                 'You have successfully logged in!',
                 'success'
             )
-            form.reset();
+            const loggedInUser = res.user;
+            console.log(loggedInUser);
+            const user = {email};
+            // send user data 
+            axios.post('/jwt',user)
+            .then(res=>console.log(res.data))
+
+            // form.reset();
             // naviagate user 
-            navigate(location?.state ? location.state : '/'); 
+            // navigate(location?.state ? location.state : '/'); 
         })
         .catch(err =>{
             setError("Please give correct email and password to login!");
