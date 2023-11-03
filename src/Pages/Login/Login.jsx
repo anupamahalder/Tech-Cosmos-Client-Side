@@ -33,7 +33,7 @@ const Login = () => {
             console.log(loggedInUser);
             const userEmail = {email};
             // send user data and to set cookies on browser use withCredentials
-            axios.post('http://localhost:5033/jwt',userEmail, {
+            axios.post('https://tech-cosmos-server-side.vercel.app/jwt',userEmail, {
                 withCredentials: true
             })
             .then(res=>{
@@ -62,7 +62,7 @@ const Login = () => {
             const userEmail = result.user?.email;
             // console.log(userEmail);
             // send user data and to set cookies on browser use withCredentials
-            axios.post('http://localhost:5033/jwt',userEmail, {
+            axios.post('https://tech-cosmos-server-side.vercel.app/jwt',userEmail, {
                 withCredentials: true
             })
             .then(res=>{
