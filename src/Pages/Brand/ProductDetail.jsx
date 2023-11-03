@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import Swal from "sweetalert2";
 
 const ProductDetail = () => {
@@ -66,13 +67,14 @@ const ProductDetail = () => {
     }
 
     return (
-        <div style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5',color: darkMode==="true" ? 'white': '#0C2461'}} 
-        className='pb-20 px-10'>
+        <div className='px-10 pt-6 relative min-h-screen'>
             {/* go back icon  */}
-            <BiArrowBack onClick={()=>navigate(-1)} className="text-gray-400 cursor-pointer font-bold absolute left-10 top-24 text-4xl"></BiArrowBack>
-            <div className="md:flex md:gap-10 py-20">
+            <BiArrowBack onClick={()=>navigate(-1)} className="text-gray-400 cursor-pointer font-bold absolute left-10 text-4xl"></BiArrowBack>
+            <div className="py-4 rounded-lg mt-16" 
+            style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5',color: darkMode==="true" ? 'white': '#0C2461'}} >
+            <div className="md:flex md:gap-10 py-10">
             <figure style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5'}}
-            className='w-1/2 mx-auto my-auto object-cover md:flex-1 object-center'><img className='rounded-xl' src={image} alt={type} /></figure>
+            className='w-1/2 mx-auto my-auto object-cover md:mx-2 md:flex-1 object-center'><img className='rounded-xl' src={image} alt={type} /></figure>
             <div className="p-4 md:flex-1">
                 <div className=''>
                     <h2 className="card-title font-bold text-2xl pl-2">{name}</h2>
@@ -87,9 +89,10 @@ const ProductDetail = () => {
                     {/* Add to cart  */}
                     <button 
                     onClick={handleAddToCart}
-                     className="btn bg-[#2a5ad3] hover:bg-[#1d387d] text-white py-3 px-4 rounded-lg my-5 font-bold">Add To Cart</button>
+                     className="btn bg-[#2a5ad3] hover:bg-[#1d387d] text-white py-3 px-4 rounded-lg my-5 font-bold"><AiOutlineShoppingCart className="text-2xl font-bold"></AiOutlineShoppingCart>Add To Cart</button>
                     </div>
                 </div>
+            </div>
             </div>
             </div>
         </div>

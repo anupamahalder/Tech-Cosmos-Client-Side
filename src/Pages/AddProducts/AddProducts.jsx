@@ -51,7 +51,7 @@ const AddProducts = () => {
         <div className="max-w-[1300px] mx-auto min-h-screen pb-20" style={{backgroundColor: darkMode==="true" ? '#1D232A':'white', color: darkMode==="true" ? 'white': '#0C2461'}} >
             {/* form section  */}
             <div style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5'}} 
-            className="w-[500px] mx-auto mt-12 rounded-lg">
+            className="w-[500px] mx-auto mt-12 rounded-lg shadow-lg">
                 <h1 className="text-center pt-6 text-3xl font-semibold uppercase">Add Products</h1>
             <form  onSubmit={handleAddProduct}
                 style={{color: darkMode==="true" ? 'white': '#1D232A'}}  
