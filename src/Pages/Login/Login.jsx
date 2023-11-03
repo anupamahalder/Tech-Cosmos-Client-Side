@@ -28,22 +28,27 @@ const Login = () => {
         }
         // call signInUser with email and password
         signInUser(email, password)
-        .then(res =>{
-            Swal.fire(
-                'Good job!',
-                'You have successfully logged in!',
-                'success'
-            )
-            const loggedInUser = res.user;
+        .then(result =>{
+            const loggedInUser = result.user;
             console.log(loggedInUser);
-            const user = {email};
+            const userEmail = {email};
             // send user data 
-            axios.post('/jwt',user)
-            .then(res=>console.log(res.data))
-
-            // form.reset();
-            // naviagate user 
-            // navigate(location?.state ? location.state : '/'); 
+            axios.post('http://localhost:5033/jwt',userEmail, {
+                withCredentials: true
+            })
+            .then(res=>{
+                console.log(res.data);
+                if(res.data.success){
+                    Swal.fire(
+                        'Good job!',
+                        'You have successfully logged in!',
+                        'success'
+                    )
+                    form.reset();
+                    // naviagate user 
+                    navigate(location?.state ? location.state : '/'); 
+                }
+            })
         })
         .catch(err =>{
             setError("Please give correct email and password to login!");
@@ -53,15 +58,25 @@ const Login = () => {
     // handle google sign in 
     const handleGoogleSignIn = ()=>{
         signInWithGoogle()
-        .then(res=>{
-            console.log(res.user);
-            Swal.fire(
-                'Good job!',
-                'You have successfully logged in',
-                'success'
-            )   
-            // naviagate user 
-            navigate(location?.state ? location.state : '/');           
+        .then(result =>{
+            const userEmail = result.user?.email;
+            // console.log(userEmail);
+            // send user data 
+            axios.post('http://localhost:5033/jwt',userEmail, {
+                withCredentials: true
+            })
+            .then(res=>{
+                console.log(res.data);
+                if(res.data.success){
+                    Swal.fire(
+                        'Good job!',
+                        'You have successfully logged in!',
+                        'success'
+                    )
+                    // naviagate user 
+                    navigate(location?.state ? location.state : '/'); 
+                }
+            })
         })
         .catch(err=>{
             setError(err.message);
