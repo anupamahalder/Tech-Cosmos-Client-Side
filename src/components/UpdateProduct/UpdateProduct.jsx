@@ -56,6 +56,8 @@ const UpdateProduct = () => {
     }
     return (
         <div className="max-w-[1300px] min-h-screen pb-20" style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#0C2461'}} >
+
+            
             {/* form section  */}
             <div className="w-[500px] mx-auto">
                 <h1 className="text-center pt-6 text-3xl font-semibold">Update The Products</h1>
@@ -74,7 +76,7 @@ const UpdateProduct = () => {
                     <div className="form-control">
                     <label className="label">
                     <span style={{color: darkMode==="true" ? '#A3AAB7': '#0C2461'}}className="label-text font-semibold">SELECT BRAND NAME</span></label>
-                    <select id="" name="brand" style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A',border :darkMode==="true"?"1px solid white" :""}} className="input input-bordered" defaultValue={brand} required>
+                    <select id="" name="brand" style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A',border :darkMode==="true"?"1px solid white" :""}} className="input input-bordered" value={brand} required>
                         <option value="google">Google</option>
                         <option value="canon">Canon</option>
                         <option value="intel">Intel</option>
@@ -107,7 +109,7 @@ const UpdateProduct = () => {
                     <label className="label">
                         <span style={{color: darkMode==="true" ? '#A3AAB7': '#0C2461'}}className="label-text font-semibold">PRICE</span>
                     </label>
-                    <input type="number" name="price" min="0" step="any"
+                    <input type="text" name="price" min="0" step="any"
                     style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A',border :darkMode==="true"?"1px solid white" :""}} defaultValue={price} className="input input-bordered" required />
                     </div>
                     {/* short description input here  */}
@@ -123,7 +125,7 @@ const UpdateProduct = () => {
                     <label className="label">
                         <span style={{color: darkMode==="true" ? '#A3AAB7': '#0C2461'}}className="label-text font-semibold">RATINGS</span>
                     </label>
-                    <input type="number" name="rating" min="0" step="any"
+                    <input type="text" name="rating" min="0" step="any"
                     style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A',border :darkMode==="true"?"1px solid white" :""}} defaultValue={rating} className="input input-bordered" required />
                     </div>
 

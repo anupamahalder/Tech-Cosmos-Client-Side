@@ -32,7 +32,7 @@ const Login = () => {
             const loggedInUser = result.user;
             console.log(loggedInUser);
             const userEmail = {email};
-            // send user data 
+            // send user data and to set cookies on browser use withCredentials
             axios.post('http://localhost:5033/jwt',userEmail, {
                 withCredentials: true
             })
@@ -61,7 +61,7 @@ const Login = () => {
         .then(result =>{
             const userEmail = result.user?.email;
             // console.log(userEmail);
-            // send user data 
+            // send user data and to set cookies on browser use withCredentials
             axios.post('http://localhost:5033/jwt',userEmail, {
                 withCredentials: true
             })
