@@ -10,7 +10,7 @@ const ProductDetail = () => {
     const product = useLoaderData();
     // destructure 
     const {_id,brand,image,name,price,rating,type,category, description}=product;    
-    const {darkMode} = useContext(AuthContext);
+    const {darkMode, user} = useContext(AuthContext);
     const navigate = useNavigate();
     // declare a state to check data present in my cart or not 
     const [isPresent, setIspresent] = useState(false);
@@ -37,13 +37,15 @@ const ProductDetail = () => {
         if(isPresent){
             return;
         }
+        const email = user?.email;
+        const productData = {email,...product};
         // send data to server  
         fetch('https://tech-cosmos-server-side.vercel.app/mycart',{
             method: 'POST',
             headers: {
                 'content-type':'application/json'
             },
-            body: JSON.stringify(product)
+            body: JSON.stringify(productData)
         })
         .then(res=>res.json())
         .then(data =>{
@@ -70,7 +72,7 @@ const ProductDetail = () => {
         <div className='px-10 pt-6 relative min-h-screen max-w-[1300px] mx-auto'>
             {/* go back icon  */}
             <BiArrowBack onClick={()=>navigate(-1)} className="text-gray-400 cursor-pointer font-bold absolute left-10 text-4xl"></BiArrowBack>
-            <div className="py-4 rounded-lg mt-16" 
+            <div className="py-4 rounded-lg my-16" 
             style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5',color: darkMode==="true" ? 'white': '#0C2461'}} >
             <div className="md:flex md:gap-10 py-10">
             <figure style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5'}}
