@@ -33,8 +33,7 @@ const MyRoute = createBrowserRouter([
             },
             {
                 path: '/mycart',
-                element: <PrivateRoute><MyCart></MyCart></PrivateRoute>,
-                loader: ()=>fetch('https://tech-cosmos-server-side.vercel.app/mycart')
+                element: <PrivateRoute><MyCart></MyCart></PrivateRoute>
             },
             {
                 path: '/brands/:id',
