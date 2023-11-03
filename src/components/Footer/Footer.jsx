@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <div>
+        <div className="max-w-[1300px] mx-auto">
             <footer className="footer p-10 bg-neutral text-neutral-content">
             <aside>
                 <p className="pl-6">

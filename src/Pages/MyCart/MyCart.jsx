@@ -6,11 +6,10 @@ import CartProduct from "./CartProduct";
 const MyCart = () => {
     // load data 
     const myCartData = useLoaderData();
-    const {darkMode} = useContext(AuthContext);
     // declare a state to store my cart data
     const [myCart, setMyCart] = useState(myCartData);
     return (
-        <div className="max-w-[1300px] min-h-screen" style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#0C2461'}}>
+        <div className="max-w-[1300px] mx-auto min-h-screen mt-10">
             <h1 className="text-center pt-10 text-3xl font-bold">Total Added Products: {myCart.length}</h1>
             <div 
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-6 px-10 mx-auto">

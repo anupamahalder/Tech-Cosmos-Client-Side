@@ -41,15 +41,15 @@ const BrandSlider = ({adsData})=>{
     };
     return (
       <Slider {...settings} className="mx-auto bg-black">
-        <div className="h-[220px] md:h-[60vh] mx-auto ">
+        <div className="h-[220px] md:h-[450px] mx-auto ">
           <img className="w-full object-cover object-center" 
           src={image1} alt="" />
         </div>
-        <div className="h-[220px] md:h-[60vh] mx-auto ">
+        <div className="h-[220px] md:h-[450px] mx-auto ">
           <img className="w-full object-cover object-center" 
           src={image2} alt="" />
         </div>
-        <div className="h-[220px] md:h-[60vh] mx-auto ">
+        <div className="h-[220px] md:h-[450px] mx-auto ">
           <img className="w-full object-cover object-center" 
           src={image3} alt="" />
         </div>
@@ -58,6 +58,6 @@ const BrandSlider = ({adsData})=>{
 };
 // Adding proptypes 
 BrandSlider.propTypes ={
-    adsData: PropTypes.object.isRequired,
+    adsData: PropTypes.array.isRequired,
 }
 export default BrandSlider;

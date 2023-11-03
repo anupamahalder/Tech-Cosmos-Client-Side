@@ -15,7 +15,7 @@ const Navbar = () => {
     }
     return (
         <div style={{backgroundColor: darkMode==="true" ? '#0c2461':'white', color: darkMode==="true" ? 'white': '#0c2461'}}  
-        className="flex justify-between px-10 md:px-4 lg:pl-12 lg:pr-4 font-semibold text-xl py-6 shadow-lg">
+        className="max-w-[1300px] mx-auto flex justify-between px-10 md:px-4 lg:pl-12 lg:pr-4 font-semibold text-xl py-6 shadow-lg">
             <div>
                 {/* logo  */}
                 <h1 className='text-3xl font-bold'>Tech Cosmos</h1>

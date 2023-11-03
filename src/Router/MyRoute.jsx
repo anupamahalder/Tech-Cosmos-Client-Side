@@ -9,8 +9,8 @@ import BrandPage from "../Pages/Brand/BrandPage";
 import ProductDetail from "../Pages/Brand/ProductDetail";
 import UpdateProduct from "../components/UpdateProduct/UpdateProduct";
 import PrivateRoute from "./PrivateRoute";
-import Contact from "../components/Contact/Contact";
 import Error from "../components/Error/Error";
+import ContactUs from "../Pages/ContactUs/ContactUs";
 
 const MyRoute = createBrowserRouter([
     {
@@ -57,7 +57,7 @@ const MyRoute = createBrowserRouter([
             },
             {
                 path: '/contact',
-                element: <Contact></Contact>
+                element: <ContactUs></ContactUs>
             }
         ]
     }

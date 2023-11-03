@@ -37,19 +37,19 @@ export default function SimpleSlider() {
   };
   return (
     <Slider {...settings} className="mx-auto bg-black">
-      <div className="h-[220px] md:h-[70vh] mx-auto ">
+      <div className="h-[220px] md:h-[550px] mx-auto ">
         <img className="w-full object-cover object-bottom" src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?auto=format&fit=crop&q=80&w=1470&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
       </div>
-      <div className="h-[220px] md:h-[70vh] mx-auto ">
+      <div className="h-[220px] md:h-[550px] mx-auto ">
         <img className="w-full object-cover object-bottom" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1470&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
       </div>
-      <div className="h-[220px] md:h-[70vh] mx-auto ">
+      <div className="h-[220px] md:h-[550px] mx-auto ">
         <img className="w-full object-cover object-bottom" src="https://images.unsplash.com/photo-1562408590-e32931084e23?auto=format&fit=crop&q=80&w=1470&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
       </div>
-      <div className="h-[220px] md:h-[70vh] mx-auto ">
+      <div className="h-[220px] md:h-[550px] mx-auto ">
         <img className="w-full object-cover object-bottom" src="https://images.unsplash.com/photo-1468495244123-6c6c332eeece?auto=format&fit=crop&q=80&w=1321&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
       </div>
-      <div className="h-[220px] md:h-[70vh] mx-auto ">
+      <div className="h-[220px] md:h-[550px] mx-auto ">
         <img className="w-full object-cover object-bottom" src="https://images.unsplash.com/photo-1624718801565-c9558fde6d87?auto=format&fit=crop&q=80&w=1331&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
       </div>
     </Slider>

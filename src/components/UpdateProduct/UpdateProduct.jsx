@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import { BiArrowBack } from "react-icons/bi";
 
 const UpdateProduct = () => {
     const {darkMode} = useContext(AuthContext);
@@ -55,9 +56,10 @@ const UpdateProduct = () => {
         })
     }
     return (
-        <div className="max-w-[1300px] min-h-screen pb-20" style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#0C2461'}} >
+        <div className="max-w-[1300px] mx-auto relative min-h-screen pb-20" style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#0C2461'}} >
 
-            
+            {/* go back icon  */}
+            <BiArrowBack onClick={()=>navigate(-1)} className="text-gray-400 cursor-pointer font-bold absolute left-10 text-4xl mt-10"></BiArrowBack>
             {/* form section  */}
             <div className="w-[500px] mx-auto">
                 <h1 className="text-center pt-6 text-3xl font-semibold">Update The Products</h1>
