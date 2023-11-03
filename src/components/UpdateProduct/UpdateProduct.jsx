@@ -56,13 +56,14 @@ const UpdateProduct = () => {
         })
     }
     return (
-        <div className="max-w-[1300px] mx-auto relative min-h-screen pb-20" style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#0C2461'}} >
-
+        <div className="relative max-w-[1300px] mx-auto min-h-screen">
             {/* go back icon  */}
-            <BiArrowBack onClick={()=>navigate(-1)} className="text-gray-400 cursor-pointer font-bold absolute left-10 text-4xl mt-10"></BiArrowBack>
+            <BiArrowBack onClick={()=>navigate(-1)} className="text-gray-400 cursor-pointer font-bold absolute left-10 text-4xl"></BiArrowBack>
+        <div className="my-10" style={{backgroundColor: darkMode==="true" ? '#1D232A':'white', color: darkMode==="true" ? 'white': '#0C2461'}} >
             {/* form section  */}
-            <div className="w-[500px] mx-auto">
-                <h1 className="text-center pt-6 text-3xl font-semibold">Update The Products</h1>
+            <div style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5'}} 
+            className="w-[500px] mx-auto rounded-lg shadow-lg">
+                <h1 className="text-center pt-6 text-3xl font-semibold uppercase">Update The Products</h1>
             <form  onSubmit={handleAddProduct}
                 style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A'}}  
                 className="card-body rounded-lg">
@@ -137,6 +138,7 @@ const UpdateProduct = () => {
                     </div>
                 </form>
             </div>
+        </div>
         </div>
     );
 };
