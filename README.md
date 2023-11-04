@@ -1,5 +1,5 @@
 # Tech Cosmos
-## Live link: https://marvelous-pavlova-3b9051.netlify.app/ 
+## Live link: https://6544e8f420f77c253978fe75--chic-kheer-87183f.netlify.app/
 
 # Project Features
 <ul>
