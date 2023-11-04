@@ -34,7 +34,8 @@ const Login = () => {
             const userEmail = {email};
             // send user data and to set cookies on browser use withCredentials
             axios.post('https://tech-cosmos-server-side.vercel.app/jwt',userEmail, {
-                withCredentials: true
+            // set cookies to browser    
+            withCredentials: true
             })
             .then(res=>{
                 console.log(res.data);

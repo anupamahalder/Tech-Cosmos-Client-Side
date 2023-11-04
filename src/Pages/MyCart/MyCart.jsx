@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import CartProduct from "./CartProduct";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import axios from "axios";
 
 const MyCart = () => {
     const {user} = useContext(AuthContext);
@@ -9,11 +10,18 @@ const MyCart = () => {
 
     // pass email to url and load data based on user
     const url = `https://tech-cosmos-server-side.vercel.app/mycart?email=${user?.email}`;
+    // const url = `http://localhost:5033/mycart?email=${user?.email}`;
     // load data 
     useEffect(()=>{
-        fetch(url)
-        .then(res => res.json())
-        .then(data =>setMyCart(data))
+
+        axios.get(url,{withCredentials: true})
+        .then(res =>{
+            setMyCart(res.data);
+        })
+
+        // fetch(url)
+        // .then(res => res.json())
+        // .then(data =>setMyCart(data))
     },[url])
     
     return (
