@@ -10,7 +10,6 @@ const MyCart = () => {
 
     // pass email to url and load data based on user
     const url = `https://tech-cosmos-server-side.vercel.app/mycart?email=${user?.email}`;
-    // const url = `http://localhost:5033/mycart?email=${user?.email}`;
     // load data 
     useEffect(()=>{
 
@@ -18,6 +17,7 @@ const MyCart = () => {
         .then(res =>{
             setMyCart(res.data);
         })
+        .catch(err=> console.log(err))
 
         // fetch(url)
         // .then(res => res.json())

@@ -32,6 +32,7 @@ const Login = () => {
             const loggedInUser = result.user;
             console.log(loggedInUser);
             const userEmail = {email};
+            console.log(userEmail);
             // send user data and to set cookies on browser use withCredentials
             axios.post('https://tech-cosmos-server-side.vercel.app/jwt',userEmail, {
             // set cookies to browser    
@@ -58,12 +59,13 @@ const Login = () => {
     }
     // handle google sign in 
     const handleGoogleSignIn = ()=>{
+        console.log('hello');
         signInWithGoogle()
         .then(result =>{
             const userEmail = result.user?.email;
-            // console.log(userEmail);
+            console.log(userEmail);
             // send user data and to set cookies on browser use withCredentials
-            axios.post('https://tech-cosmos-server-side.vercel.app/jwt',userEmail, {
+            axios.post('https://tech-cosmos-server-side.vercel.app/jwt',{email: userEmail}, {
                 withCredentials: true
             })
             .then(res=>{

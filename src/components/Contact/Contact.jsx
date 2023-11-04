@@ -30,7 +30,7 @@ const Contact = () => {
             <div className="md:flex md:gap-10 px-2 md:px-10 mx-auto md:justify-center md:items-center">
                 <div className="mx-auto mb-10 md:m-0 md:flex-1 flex justify-center shadow-2xl rounded-lg h-[250px] md:h-[420px]">
                     {/* map  */}
-                <iframe className="w-full rounded-xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235850.27101830672!2d88.18218985626342!3d22.535660235919348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f882db4908f667%3A0x43e330e68f6c2cbc!2sKolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1698305336405!5m2!1sen!2sin" style={{border:0}} allowfullscreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                <iframe className="w-full rounded-xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235850.27101830672!2d88.18218985626342!3d22.535660235919348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f882db4908f667%3A0x43e330e68f6c2cbc!2sKolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1698305336405!5m2!1sen!2sin" style={{border:0}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 {/* form section  */}
                 <div className="card w-full md:flex-1 mx-auto shadow-2xl">

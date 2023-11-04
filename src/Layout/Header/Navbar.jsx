@@ -48,8 +48,8 @@ const Navbar = () => {
                 {
                     user ? <div className='flex justify-center items-center gap-3 -mt-2'>
                     <button className='text-left' onClick={handleSignOut}>Sign Out</button>
-                    <p style={{color: darkMode=="true" ? '#c7c7c7': '#4a4a4a'}}
-                     className='text-sm my-auto'>{user.displayName || user?.email}</p>
+                    <h1 style={{color: darkMode=="true" ? '#c7c7c7': '#4a4a4a'}}
+                     className='text-sm my-auto'>{user.displayName || user?.email}</h1>
                      <img className='w-10 rounded-full' src={user?.photoURL} alt="" />
                     </div>:
                     <NavLink to='/login'className={({ isActive, isPending }) =>
