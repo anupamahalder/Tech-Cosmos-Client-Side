@@ -19,7 +19,7 @@ const BrandPage = () => {
     // load advertisement data 
     const [adsData, setAdsData] = useState([]);
     useEffect(()=>{
-        fetch(`http://localhost:5033/brands/advertisement/${brandName}`)
+        fetch(`https://tech-cosmos-server-side.vercel.app/brands/advertisement/${brandName}`)
         .then(res=>res.json())
         .then(data=>{
             setAdsData(data);
@@ -44,7 +44,7 @@ const BrandPage = () => {
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-6 px-10 mx-auto">
             {
                 // loop through all data 
-                brandData?.map(brandInfo => <BrandDisplay key={brandInfo._id} brandInfo={brandInfo}></BrandDisplay>)
+                brandData?.map(brandInfo => <BrandDisplay key={brandInfo._id} brandName={brandName} brandInfo={brandInfo}></BrandDisplay>)
             }
         </div>
         </div>

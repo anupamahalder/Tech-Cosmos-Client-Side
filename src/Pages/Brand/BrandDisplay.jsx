@@ -9,7 +9,7 @@ import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
 AOS.init();
 
-const BrandDisplay = ({brandInfo}) => {
+const BrandDisplay = ({brandInfo, brandName}) => {
     // destructure 
     const {_id,brand,image,name,price,rating,type,category}=brandInfo;    
     const {darkMode} = useContext(AuthContext);
@@ -32,9 +32,9 @@ const BrandDisplay = ({brandInfo}) => {
                     <Rating style={{ maxWidth: 120}} className='pl-2' value={rating} readOnly></Rating>
                     {/* <Rating value={rating} /> */}
                     <div className='flex mx-auto absolute bottom-1 gap-5'>
-                    <Link to={`/products/${brand}/${_id}`}>
+                    <Link to={`/products/${brandName}/${_id}`}>
                     <button className="btn bg-[#2a5ad3] hover:bg-[#1d387d] text-white py-3 px-4 rounded-lg my-5 font-bold ml-16">Details</button></Link>
-                    <Link to={`/update/${brand}/${_id}`}>
+                    <Link to={`/update/${brandName}/${_id}`}>
                     <button className="btn bg-[#851236] hover:bg-[#610a3a] text-white py-3 px-4 rounded-lg my-5 font-bold">Update</button></Link>
                     </div>
                 </div>
@@ -46,5 +46,6 @@ const BrandDisplay = ({brandInfo}) => {
 // Adding proptypes 
 BrandDisplay.propTypes = {
     brandInfo: PropTypes.object.isRequired,
+    brandName: PropTypes.string.isRequired,
 }
 export default BrandDisplay;

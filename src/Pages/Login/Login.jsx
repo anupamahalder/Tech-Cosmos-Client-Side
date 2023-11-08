@@ -31,26 +31,36 @@ const Login = () => {
         .then(result =>{
             const loggedInUser = result.user;
             console.log(loggedInUser);
-            const userEmail = {email};
-            console.log(userEmail);
-            // send user data and to set cookies on browser use withCredentials
-            axios.post('http://localhost:5033/jwt',userEmail, {
-            // set cookies to browser    
-            withCredentials: true
-            })
-            .then(res=>{
-                console.log(res.data);
-                if(res.data.success){
-                    Swal.fire(
-                        'Good job!',
-                        'You have successfully logged in!',
-                        'success'
-                    )
-                    form.reset();
-                    // naviagate user 
-                    navigate(location?.state ? location.state : '/'); 
-                }
-            })
+            // const userEmail = {email};
+            // console.log(userEmail);
+            // // send user data and to set cookies on browser use withCredentials
+            // axios.post('https://tech-cosmos-server-side.vercel.app/jwt',userEmail, {
+            // // set cookies to browser    
+            // withCredentials: true
+            // })
+            // .then(res=>{
+            //     console.log(res.data);
+            //     if(res.data.success){
+            //         Swal.fire(
+            //             'Good job!',
+            //             'You have successfully logged in!',
+            //             'success'
+            //         )
+            //         form.reset();
+            //         // naviagate user 
+            //         navigate(location?.state ? location.state : '/'); 
+            //     }
+            // })
+            if(loggedInUser){
+                Swal.fire(
+                    'Good job!',
+                    'You have successfully logged in!',
+                    'success'
+                )
+                form.reset();
+                // naviagate user 
+                navigate(location?.state ? location.state : '/'); 
+            }
         })
         .catch(err =>{
             setError("Please give correct email and password to login!");
@@ -62,24 +72,33 @@ const Login = () => {
         console.log('hello');
         signInWithGoogle()
         .then(result =>{
-            const userEmail = result.user?.email;
-            console.log(userEmail);
-            // send user data and to set cookies on browser use withCredentials
-            axios.post('http://localhost:5033/jwt',{email: userEmail}, {
-                withCredentials: true
-            })
-            .then(res=>{
-                console.log(res.data);
-                if(res.data.success){
-                    Swal.fire(
-                        'Good job!',
-                        'You have successfully logged in!',
-                        'success'
-                    )
-                    // naviagate user 
-                    navigate(location?.state ? location.state : '/'); 
-                }
-            })
+            // const userEmail = result.user?.email;
+            // console.log(userEmail);
+            // // send user data and to set cookies on browser use withCredentials
+            // axios.post('https://tech-cosmos-server-side.vercel.app/jwt',{email: userEmail}, {
+            //     withCredentials: true
+            // })
+            // .then(res=>{
+            //     console.log(res.data);
+            //     if(res.data.success){
+            //         Swal.fire(
+            //             'Good job!',
+            //             'You have successfully logged in!',
+            //             'success'
+            //         )
+            //         // naviagate user 
+            //         navigate(location?.state ? location.state : '/'); 
+            //     }
+            // })
+            if(result.user){
+                Swal.fire(
+                    'Good job!',
+                    'You have successfully logged in!',
+                    'success'
+                )
+                // naviagate user 
+                navigate(location?.state ? location.state : '/'); 
+            }
         })
         .catch(err=>{
             setError(err.message);
