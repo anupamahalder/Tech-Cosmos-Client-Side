@@ -26,7 +26,7 @@ const UpdateProduct = () => {
         category = 'Technology and electronics';
         const updatedProduct = {_id, name, brand, image, type, price, rating, category, description};
         // send data to server  
-        fetch(`https://tech-cosmos-server-side.vercel.app/${brand}/${_id}`,{
+        fetch(`http://localhost:5033/${brand}/${_id}`,{
             method: 'PUT',
             headers: {
                 'content-type':'application/json'

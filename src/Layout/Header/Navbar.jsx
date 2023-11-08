@@ -46,7 +46,7 @@ const Navbar = () => {
                     className='cursor-pointer mt-1'></BsFillBrightnessHighFill>
                 }
                 {
-                    user ? <div className='flex justify-center items-center gap-3 -mt-2'>
+                    user ? <div className='pt-2 md:pt-0 md:flex justify-center items-center gap-3 -mt-2'>
                     <button className='text-left' onClick={handleSignOut}>Sign Out</button>
                     <h1 style={{color: darkMode=="true" ? '#c7c7c7': '#4a4a4a'}}
                      className='text-sm my-auto'>{user.displayName || user?.email}</h1>

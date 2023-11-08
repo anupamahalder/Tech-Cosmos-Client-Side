@@ -13,7 +13,7 @@ const Home = () => {
     // console.log(typeof brands);
     // console.log(brands);
     return (
-        <div style={{backgroundColor: darkMode=="true"&&"#1D232A"}} className="max-w-[1300px] mx-auto">
+        <div style={{backgroundColor: darkMode=="true"&&"#1D232A"}} className="max-w-[1300px] mx-auto min-h-screen">
             {/* Banner section  */}
             <div className="w-full mx-auto">
             <SimpleSlider></SimpleSlider>

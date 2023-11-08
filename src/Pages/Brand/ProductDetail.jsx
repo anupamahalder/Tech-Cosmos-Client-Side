@@ -17,7 +17,7 @@ const ProductDetail = () => {
 
     // handle add to cart 
     const handleAddToCart = () =>{
-        fetch('https://tech-cosmos-server-side.vercel.app/mycart')
+        fetch('http://localhost:5033/mycart')
         .then(res => res.json())
         .then(data => {
             const checkItem = data.find(item =>item._id === _id);
@@ -40,7 +40,7 @@ const ProductDetail = () => {
         const email = user?.email;
         const productData = {email,...product};
         // send data to server  
-        fetch('https://tech-cosmos-server-side.vercel.app/mycart',{
+        fetch('http://localhost:5033/mycart',{
             method: 'POST',
             headers: {
                 'content-type':'application/json'
