@@ -58,6 +58,6 @@ const BrandSlider = ({adsData})=>{
 };
 // Adding proptypes 
 BrandSlider.propTypes ={
-    adsData: PropTypes.array.isRequired,
+    adsData: PropTypes.object.isRequired,
 }
 export default BrandSlider;

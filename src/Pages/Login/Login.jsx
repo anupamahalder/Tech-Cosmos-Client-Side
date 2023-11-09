@@ -34,7 +34,7 @@ const Login = () => {
             // const userEmail = {email};
             // console.log(userEmail);
             // // send user data and to set cookies on browser use withCredentials
-            // axios.post('https://tech-cosmos-server-side.vercel.app/jwt',userEmail, {
+            // axios.post('http://localhost:5033/jwt',userEmail, {
             // // set cookies to browser    
             // withCredentials: true
             // })
@@ -75,7 +75,7 @@ const Login = () => {
             // const userEmail = result.user?.email;
             // console.log(userEmail);
             // // send user data and to set cookies on browser use withCredentials
-            // axios.post('https://tech-cosmos-server-side.vercel.app/jwt',{email: userEmail}, {
+            // axios.post('http://localhost:5033/jwt',{email: userEmail}, {
             //     withCredentials: true
             // })
             // .then(res=>{

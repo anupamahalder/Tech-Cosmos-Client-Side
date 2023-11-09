@@ -26,7 +26,7 @@ const UpdateProduct = () => {
         category = 'Technology and electronics';
         const updatedProduct = {_id, name, brand, image, type, price, rating, category, description};
         // send data to server  
-        fetch(`https://tech-cosmos-server-side.vercel.app/${brand}/${_id}`,{
+        fetch(`http://localhost:5033/${brand}/${_id}`,{
             method: 'PUT',
             headers: {
                 'content-type':'application/json'
@@ -62,7 +62,7 @@ const UpdateProduct = () => {
         <div className="my-10" style={{backgroundColor: darkMode==="true" ? '#1D232A':'white', color: darkMode==="true" ? 'white': '#0C2461'}} >
             {/* form section  */}
             <div style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5'}} 
-            className="w-[500px] mx-auto rounded-lg shadow-lg">
+            className="w-[350px] md:w-[500px] mx-auto rounded-lg shadow-lg">
                 <h1 className="text-center pt-6 text-3xl font-semibold uppercase">Update The Products</h1>
             <form  onSubmit={handleAddProduct}
                 style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A'}}  

@@ -12,12 +12,10 @@ const ProductDetail = () => {
     const {_id,brand,image,name,price,rating,type,category, description}=product;    
     const {darkMode, user} = useContext(AuthContext);
     const navigate = useNavigate();
-    // declare a state to check data present in my cart or not 
-    const [isPresent, setIspresent] = useState(false);
 
     // handle add to cart 
     const handleAddToCart = () =>{
-        fetch('https://tech-cosmos-server-side.vercel.app/mycart')
+        fetch('http://localhost:5033/mycart')
         .then(res => res.json())
         .then(data => {
             const checkItem = data.find(item =>item._id === _id);
@@ -27,45 +25,39 @@ const ProductDetail = () => {
                     'This product has already been added to my cart',
                     'info'
                 )
-                // console.log('item',checkItem);
-                setIspresent(true);
             }
             else{
-                setIspresent(false);
-            }
-        });
-        if(isPresent){
-            return;
-        }
-        const email = user?.email;
-        const productData = {email,...product};
-        // send data to server  
-        fetch('https://tech-cosmos-server-side.vercel.app/mycart',{
-            method: 'POST',
-            headers: {
-                'content-type':'application/json'
-            },
-            body: JSON.stringify(productData)
-        })
-        .then(res=>res.json())
-        .then(data =>{
-            console.log(data);
-            if(data.insertedId){
+            const email = user?.email;
+            const productData = {email,...product};
+            // send data to server  
+            fetch('http://localhost:5033/mycart',{
+                method: 'POST',
+                headers: {
+                    'content-type':'application/json'
+                },
+                body: JSON.stringify(productData)
+            })
+            .then(res=>res.json())
+            .then(data =>{
+                console.log(data);
+                if(data.insertedId){
+                    Swal.fire(
+                        'Good Job',
+                        'This product has been added to my cart',
+                        'success'
+                    )
+                }
+            })
+            .catch(err =>{
+                console.log(err.message);
                 Swal.fire(
-                    'Good Job',
-                    'This product has been added to my cart',
-                    'success'
+                    'Sorry',
+                    'Failed to added in my cart',
+                    'error'
                 )
-            }
-        })
-        .catch(err =>{
-            console.log(err.message);
-            Swal.fire(
-                'Sorry',
-                'Failed to added in my cart',
-                'error'
-            )
-        })
+            })
+        }
+        });
     }
 
     return (
