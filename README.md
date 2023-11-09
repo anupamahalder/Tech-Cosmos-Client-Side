@@ -1,5 +1,5 @@
 # Tech Cosmos
-## Live link: https://6544e8f420f77c253978fe75--chic-kheer-87183f.netlify.app/
+## Live link: https://654bc9ff6091fc2327a62181--idyllic-parfait-a7e9f6.netlify.app/
 
 # Project Features
 <ul>
