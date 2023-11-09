@@ -33,13 +33,16 @@ const BrandPage = () => {
 
     // console.log(typeof brandData);
     return (
-        <div className="max-w-[1300px] relative min-h-screen mx-auto" style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#0C2461'}}>
+        <div className="max-w-[1300px] min-h-screen mx-auto" style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#0C2461'}}>
             {/* brand slider  */}
             <BrandSlider adsData={adsData}></BrandSlider>
             {/* go back icon  */}
-            <BiArrowBack onClick={()=>navigate(-1)} className="text-gray-400 cursor-pointer font-bold absolute left-10 text-4xl mt-10"></BiArrowBack>
+            <div className="relative pb-4">
+            <BiArrowBack onClick={()=>navigate(-1)} className="text-gray-400 cursor-pointer font-bold absolute top-6 left-6 md:left-10 text-3xl md:text-5xl"></BiArrowBack>
+            </div>
             {/* heading  */}
-            <h1 className="text-center pt-10 text-3xl font-bold">All Products From {brandData[0].brand}</h1>
+            <h1 className="text-center pt-10 md:pb-6 text-2xl md:text-3xl font-bold">All Products From {brandData[0].brand}</h1>
+            
             <div 
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-6 px-10 mx-auto">
             {
