@@ -58,12 +58,12 @@ const UpdateProduct = () => {
     return (
         <div className="relative max-w-[1300px] mx-auto min-h-screen">
             {/* go back icon  */}
-            <BiArrowBack onClick={()=>navigate(-1)} className="text-gray-400 cursor-pointer font-bold absolute left-10 text-4xl"></BiArrowBack>
+            <BiArrowBack onClick={()=>navigate(-1)} className="text-gray-400 cursor-pointer font-bold absolute -top-9 md:top-0 left-2 md:left-10 text-3xl md:text-4xl"></BiArrowBack>
         <div className="my-10" style={{backgroundColor: darkMode==="true" ? '#1D232A':'white', color: darkMode==="true" ? 'white': '#0C2461'}} >
             {/* form section  */}
             <div style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5'}} 
             className="w-[350px] md:w-[500px] mx-auto rounded-lg shadow-lg">
-                <h1 className="text-center pt-6 text-3xl font-semibold uppercase">Update The Products</h1>
+                <h1 className="text-center pt-6 text-2xl md:text-3xl font-semibold uppercase">Update The Products</h1>
             <form  onSubmit={handleAddProduct}
                 style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A'}}  
                 className="card-body rounded-lg">
@@ -129,7 +129,7 @@ const UpdateProduct = () => {
                         <span style={{color: darkMode==="true" ? '#A3AAB7': '#0C2461'}}className="label-text font-semibold">RATINGS</span>
                     </label>
                     <input type="text" name="rating" min="0" step="any"
-                    style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A',border :darkMode==="true"?"1px solid white" :""}} defaultValue={rating} className="input input-bordered" required />
+                    style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#1D232A',border :darkMode==="true"?"1px solid white" :""}} defaultValue={rating} className="input input-bordered" required/>
                     </div>
 
                     <div className="form-control mt-6">
