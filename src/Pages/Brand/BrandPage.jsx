@@ -6,12 +6,12 @@ import {BiArrowBack} from 'react-icons/bi';
 import BrandSlider from "../../components/BrandSlick/BrandSlider";
 const BrandPage = () => {
     const brandData = useLoaderData();
-    console.log('brand data', brandData);
+    //console.log('brand data', brandData);
     const {darkMode} = useContext(AuthContext);
     const navigate = useNavigate();
-    // console.log('brand name',brandData[0]?.brand);
+    // //console.log('brand name',brandData[0]?.brand);
     const brandName = brandData[0]?.key_name || brandData[0]?.brand;
-    console.log('Brand name:', brandName);
+    //console.log('Brand name:', brandName);
     if(typeof brandData != 'object'){
         return <h1 className="text-center text-3xl font-semibold my-40 min-h-[90vh]">No Products Found!</h1>
     }
@@ -19,19 +19,19 @@ const BrandPage = () => {
     // load advertisement data 
     const [adsData, setAdsData] = useState([]);
     useEffect(()=>{
-        fetch(`http://localhost:5033/brands/advertisement/${brandName}`)
+        fetch(`https://tech-cosmos-server-side.vercel.app/brands/advertisement/${brandName}`)
         .then(res=>res.json())
         .then(data=>{
             setAdsData(data);
-            console.log('data set', data);
+            //console.log('data set', data);
         })
         .catch(error =>{
-            console.log(error);
+            //console.log(error);
         })
     },[brandName]);
 
 
-    // console.log(typeof brandData);
+    // //console.log(typeof brandData);
     return (
         <div className="max-w-[1300px] min-h-screen mx-auto" style={{backgroundColor: darkMode==="true" ? '#1D232A':'#F0EFF5', color: darkMode==="true" ? 'white': '#0C2461'}}>
             {/* brand slider  */}

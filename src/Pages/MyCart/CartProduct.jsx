@@ -25,13 +25,13 @@ const CartProduct = ({cartInfo, setMyCart, myCart}) => {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-                console.log('Deleted id: ',id);
-                fetch(`http://localhost:5033/mycart/${id}`,{
+                //console.log('Deleted id: ',id);
+                fetch(`https://tech-cosmos-server-side.vercel.app/mycart/${id}`,{
                     method: 'DELETE'
                 })
                 .then(res => res.json())
                 .then(data =>{
-                    console.log(data);
+                    //console.log(data);
                     if(data.deletedCount > 0){
                         Swal.fire(
                             'Deleted!',

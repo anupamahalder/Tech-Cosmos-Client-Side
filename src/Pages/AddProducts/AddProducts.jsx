@@ -19,7 +19,7 @@ const AddProducts = () => {
         const product = {name, brand, image, type, price, rating, key_name, category, description};
 
         // send data to server  
-        fetch(`http://localhost:5033/brands/${brand}`,{
+        fetch(`https://tech-cosmos-server-side.vercel.app/brands/${brand}`,{
             method: 'POST',
             headers: {
                 'content-type':'application/json'
@@ -28,7 +28,7 @@ const AddProducts = () => {
         })
         .then(res=>res.json())
         .then(data =>{
-            console.log(data);
+            //console.log(data);
             if(data.insertedId){
                 Swal.fire(
                     'Good Job',
@@ -39,7 +39,7 @@ const AddProducts = () => {
             }
         })
         .catch(err =>{
-            console.log(err.message);
+            //console.log(err.message);
             Swal.fire(
                 'Sorry',
                 'Failed to add product',

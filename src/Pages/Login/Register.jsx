@@ -16,7 +16,7 @@ const Register = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password);
+        //console.log(name, email, password);
         // handle password error 
         if(password.length < 6){
             setError("Password length should be atleast 6 characters!");
@@ -33,7 +33,7 @@ const Register = () => {
         // create user 
         createUser(email,password)
         .then(res=>{
-            console.log(res.user);
+            //console.log(res.user);
             Swal.fire(
                 'Good Job!',
                 'You have successfully registered!',
@@ -43,7 +43,7 @@ const Register = () => {
             navigate(location.state ? location.state : '/');
         })
         .catch(err=>{
-            console.log(err.message);
+            //console.log(err.message);
             const errMsg = err.message;
             Swal.fire(
                 'Sorry!',

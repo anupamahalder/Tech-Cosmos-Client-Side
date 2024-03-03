@@ -9,11 +9,11 @@ const MyCart = () => {
     const [myCart, setMyCart] = useState([]);
 
     // pass email to url and load data based on user
-    const url = `http://localhost:5033/mycart?email=${user?.email}`;
+    const url = `https://tech-cosmos-server-side.vercel.app/mycart?email=${user?.email}`;
     // load data 
     useEffect(()=>{
 
-        axios.get(url,{withCredentials: true})
+        axios.get(url)
         .then(res =>{
             setMyCart(res.data);
         })

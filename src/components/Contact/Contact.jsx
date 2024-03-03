@@ -17,10 +17,10 @@ const Contact = () => {
                 'Messaged send successfully!',
                 'success'
             )
-              console.log(result.text);
+              //console.log(result.text);
               e.target.reset();
           }, (error) => {
-              console.log(error.text);
+              //console.log(error.text);
           });
       };
     

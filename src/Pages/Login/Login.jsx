@@ -20,7 +20,7 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        //console.log(email, password);
         // handle password error 
         if(password.length < 6){
             setError("Password length should atleast 6 characters long!");
@@ -30,16 +30,16 @@ const Login = () => {
         signInUser(email, password)
         .then(result =>{
             const loggedInUser = result.user;
-            console.log(loggedInUser);
+            //console.log(loggedInUser);
             // const userEmail = {email};
-            // console.log(userEmail);
+            // //console.log(userEmail);
             // // send user data and to set cookies on browser use withCredentials
-            // axios.post('http://localhost:5033/jwt',userEmail, {
+            // axios.post('https://tech-cosmos-server-side.vercel.app/jwt',userEmail, {
             // // set cookies to browser    
             // withCredentials: true
             // })
             // .then(res=>{
-            //     console.log(res.data);
+            //     //console.log(res.data);
             //     if(res.data.success){
             //         Swal.fire(
             //             'Good job!',
@@ -69,17 +69,17 @@ const Login = () => {
     }
     // handle google sign in 
     const handleGoogleSignIn = ()=>{
-        console.log('hello');
+        //console.log('hello');
         signInWithGoogle()
         .then(result =>{
             // const userEmail = result.user?.email;
-            // console.log(userEmail);
+            // //console.log(userEmail);
             // // send user data and to set cookies on browser use withCredentials
-            // axios.post('http://localhost:5033/jwt',{email: userEmail}, {
+            // axios.post('https://tech-cosmos-server-side.vercel.app/jwt',{email: userEmail}, {
             //     withCredentials: true
             // })
             // .then(res=>{
-            //     console.log(res.data);
+            //     //console.log(res.data);
             //     if(res.data.success){
             //         Swal.fire(
             //             'Good job!',

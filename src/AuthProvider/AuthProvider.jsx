@@ -13,7 +13,7 @@ const AuthProvider = ({children}) => {
     useEffect(()=>{
         localStorage.setItem('darkmode', darkMode);
         const localTheme = localStorage.getItem('darkmode');
-        console.log("loacal saved theme: ", localTheme);
+        //console.log("loacal saved theme: ", localTheme);
         setDarkMode(localTheme);
     },[darkMode]);
     // declare a state to store value of loading 

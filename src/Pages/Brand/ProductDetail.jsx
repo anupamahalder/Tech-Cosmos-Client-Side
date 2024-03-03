@@ -15,10 +15,10 @@ const ProductDetail = () => {
 
     // handle add to cart 
     const handleAddToCart = () =>{
-        fetch('http://localhost:5033/mycart')
+        fetch(`https://tech-cosmos-server-side.vercel.app/mycart?email=${user?.email}`)
         .then(res => res.json())
         .then(data => {
-            const checkItem = data.find(item =>item._id === _id);
+            const checkItem = data.find(item=>item._id === _id);
             if(checkItem){
                 Swal.fire(
                     'Product exists in My Cart',
@@ -30,7 +30,7 @@ const ProductDetail = () => {
             const email = user?.email;
             const productData = {email,...product};
             // send data to server  
-            fetch('http://localhost:5033/mycart',{
+            fetch('https://tech-cosmos-server-side.vercel.app/mycart',{
                 method: 'POST',
                 headers: {
                     'content-type':'application/json'
@@ -39,7 +39,7 @@ const ProductDetail = () => {
             })
             .then(res=>res.json())
             .then(data =>{
-                console.log(data);
+                //console.log(data);
                 if(data.insertedId){
                     Swal.fire(
                         'Good Job',
@@ -49,7 +49,7 @@ const ProductDetail = () => {
                 }
             })
             .catch(err =>{
-                console.log(err.message);
+                //console.log(err.message);
                 Swal.fire(
                     'Sorry',
                     'Failed to added in my cart',

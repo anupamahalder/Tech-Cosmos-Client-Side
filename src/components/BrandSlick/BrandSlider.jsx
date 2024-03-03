@@ -29,7 +29,7 @@ function NextArrow(props) {
 const BrandSlider = ({adsData})=>{
     // destructure 
     const {image1, image2, image3} = adsData;
-    console.log('inside brand slider');
+    //console.log('inside brand slider');
     var settings = {
       dots: true,
       infinite: true,

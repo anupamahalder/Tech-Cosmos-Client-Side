@@ -8,7 +8,7 @@ const Navbar = () => {
     const {darkMode, setDarkMode, user,logOutUser } = useContext(AuthContext);
     // declare a state to hold value of mobile navbar 
     const [isOpen, setIsOpen] = useState(false);
-    // console.log(darkMode);
+    // //console.log(darkMode);
     // handle sign out 
     const handleSignOut = () =>{
         logOutUser();

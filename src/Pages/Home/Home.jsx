@@ -10,8 +10,8 @@ import Faq from "../../components/FAQ/Faq";
 const Home = () => {
     const {darkMode} = useContext(AuthContext);
     const brands = useLoaderData();
-    // console.log(typeof brands);
-    // console.log(brands);
+    // //console.log(typeof brands);
+    // //console.log(brands);
     return (
         <div style={{backgroundColor: darkMode=="true"&&"#1D232A"}} className="max-w-[1300px] mx-auto min-h-screen">
             {/* Banner section  */}
